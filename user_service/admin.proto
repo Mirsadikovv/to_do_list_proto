@@ -98,12 +98,13 @@ message AdminChangePasswordResp {
 
 message GetAdminByLogin {
     string user_login = 1;
-    string birthday = 2;
-    string gender = 3;
-    string fullname = 4;
-    string email = 5;
-    string phone = 6;
-    string created_at = 7;
-    string updated_at = 8;
-    string id = 9;
+    string user_password = 2;
+    string birthday = 3;
+    string gender = 4;
+    string fullname = 5;
+    string email = 6;
+    string phone = 7;
+    string created_at = 8;
+    string updated_at = 9;
+    string id = 10;
 }
