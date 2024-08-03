@@ -20,11 +20,12 @@ service UserService {
 
 }
 
-message UserPrimaryKey {
+
+message AdminPrimaryKey {
     string id = 1;
 }
 
-message CreateUser {
+message CreateAdmin {
     string birthday = 1;
     string gender = 2;
     string fullname =3;
@@ -33,7 +34,7 @@ message CreateUser {
     string user_password = 6;
 }
 
-message GetUser {
+message GetAdmin {
     string user_login = 1;
     string birthday = 2;
     string gender = 3;
@@ -45,7 +46,7 @@ message GetUser {
     string id = 9;
 }
 
-message UpdateUser {
+message UpdateAdmin {
     string id = 1;
     string birthday = 2;
     string gender = 3;
@@ -54,52 +55,52 @@ message UpdateUser {
     string phone = 6;
 }
 
-message GetListUserRequest {
+message GetListAdminRequest {
     int64 offset = 1;
     int64 limit = 2;
     string search = 3;
 }
 
-message GetListUserResponse {
+message GetListAdminResponse {
     int64 Count = 1;
-    repeated GetUser Users = 2;
+    repeated GetAdmin Admins = 2;
 }
 
 
-message UserLoginRequest {
+message AdminLoginRequest {
     string user_login = 1;
     string user_password = 2;
 }
 
 
-message UserLoginResponse {
+message AdminLoginResponse {
     string access_token = 1;
     string refresh_token = 2;
 }
 
 
-message UserRegisterRequest {
+message AdminRegisterRequest {
     string mail = 1;
 }
 
-message UserRegisterConfRequest {
+message AdminRegisterConfRequest {
     string mail = 1;
     string otp = 2;
-    repeated CreateUser User = 3;
+    repeated CreateAdmin Admin = 3;
 }
 
 
-message UserChangePassword {
+message AdminChangePassword {
     string UserLogin = 1;
     string OldPassword = 2;
     string NewPassword  = 3;
 }
 
-message UserChangePasswordResp {
+message AdminChangePasswordResp {
     string comment = 1;
 }
 
-message GetUserByLogin {
+message GetAdminByLogin {
     string user_login = 1;
     string user_password = 2;
     string birthday = 3;
@@ -110,4 +111,8 @@ message GetUserByLogin {
     string created_at = 8;
     string updated_at = 9;
     string id = 10;
+}
+
+message CheckUserResp {
+    bool check = 1;
 }
