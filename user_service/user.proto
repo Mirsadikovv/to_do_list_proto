@@ -21,11 +21,11 @@ service UserService {
 }
 
 
-message AdminPrimaryKey {
+message UserPrimaryKey {
     string id = 1;
 }
 
-message CreateAdmin {
+message CreateUser {
     string birthday = 1;
     string gender = 2;
     string fullname =3;
@@ -34,7 +34,7 @@ message CreateAdmin {
     string user_password = 6;
 }
 
-message GetAdmin {
+message GetUser {
     string user_login = 1;
     string birthday = 2;
     string gender = 3;
@@ -46,7 +46,7 @@ message GetAdmin {
     string id = 9;
 }
 
-message UpdateAdmin {
+message UpdateUser {
     string id = 1;
     string birthday = 2;
     string gender = 3;
@@ -55,52 +55,52 @@ message UpdateAdmin {
     string phone = 6;
 }
 
-message GetListAdminRequest {
+message GetListUserRequest {
     int64 offset = 1;
     int64 limit = 2;
     string search = 3;
 }
 
-message GetListAdminResponse {
+message GetListUserResponse {
     int64 Count = 1;
-    repeated GetAdmin Admins = 2;
+    repeated GetUser Users = 2;
 }
 
 
-message AdminLoginRequest {
+message UserLoginRequest {
     string user_login = 1;
     string user_password = 2;
 }
 
 
-message AdminLoginResponse {
+message UserLoginResponse {
     string access_token = 1;
     string refresh_token = 2;
 }
 
 
-message AdminRegisterRequest {
+message UserRegisterRequest {
     string mail = 1;
 }
 
-message AdminRegisterConfRequest {
+message UserRegisterConfRequest {
     string mail = 1;
     string otp = 2;
-    repeated CreateAdmin Admin = 3;
+    repeated CreateUser User = 3;
 }
 
 
-message AdminChangePassword {
+message UserChangePassword {
     string UserLogin = 1;
     string OldPassword = 2;
     string NewPassword  = 3;
 }
 
-message AdminChangePasswordResp {
+message UserChangePasswordResp {
     string comment = 1;
 }
 
-message GetAdminByLogin {
+message GetUserByLogin {
     string user_login = 1;
     string user_password = 2;
     string birthday = 3;
