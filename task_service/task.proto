@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+option go_package = "genproto/task_service";
+
+package task_service_go;
+import "google/protobuf/empty.proto";
+
+
+service TaskService {
+    rpc Create(CreateTask) returns (GetTask) {}
+    rpc GetByID(TaskPrimaryKey) returns (GetTask) {}
+    rpc GetList(GetListTaskRequest) returns (GetListTaskResponse) {}
+    rpc Update(UpdateTask) returns (GetTask) {}
+    rpc Delete(TaskPrimaryKey) returns (google.protobuf.Empty) {}
+    rpc GetStudentTask(TaskPrimaryKey) returns (GetStudentTasks) {}
+    rpc GetForWeek(GetWeekTaskRequest) returns (GetWeekTaskResponse) {}
+}
+
+message TaskPrimaryKey {
+    string id = 1;
+}
+
+message CreateTask {
+    string user_id = 1;
+    string external_id = 2;
+    string title = 3;
+    string task_status = 4;
+    double task_description = 5;
+    string deadline = 6;
+}
+
+message GetTask {
+    string user_id = 1;
+    string external_id = 2;
+    string title = 3;
+    string task_status = 4;
+    string task_description = 5;
+    string deadline = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string id = 9;
+}
+
+message UpdateTask {
+    string user_id = 1;
+    string title = 2;
+    double task_description = 3;
+    string deadline = 4;
+    string id = 5;
+}
+
+
+message GetTaskWeek {
+    string user_id = 1;
+    string external_id = 2;
+    string title = 3;
+    string task_status = 4;
+    string task_description = 5;
+    string deadline = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string id = 9;
+}
+
+message GetWeekTaskRequest {
+    string from_date= 1;
+    string to_date = 2;
+    int64 offset = 3;
+    int64 limit = 4;
+    string search = 5;
+}
+
+message GetWeekTaskResponse {
+    int64 Count = 1;
+    repeated GetTaskWeek Tasks = 2;
+}
