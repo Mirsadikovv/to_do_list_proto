@@ -20,11 +20,10 @@ message TaskPrimaryKey {
 
 message CreateTask {
     string user_id = 1;
-    string external_id = 2;
-    string title = 3;
-    string task_status = 4;
-    double task_description = 5;
-    string deadline = 6;
+    string title = 2;
+    string task_status = 3;
+    double task_description = 4;
+    string deadline = 5;
 }
 
 message GetTask {
@@ -71,4 +70,18 @@ message GetListTaskRequest {
 message GetListTaskResponse {
     int64 Count = 1;
     repeated GetListTask Tasks = 2;
+}
+
+message TaskChangeStatus {
+    string external_id = 1;
+    string new_status = 2;
+}
+
+message TaskChangeStatus {
+    string external_id = 1;
+    string new_status = 2;
+}
+
+message TaskChangeStatusResp {
+    string comment = 1;
 }
