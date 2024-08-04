@@ -9,10 +9,8 @@ import "google/protobuf/empty.proto";
 service TaskService {
     rpc Create(CreateTask) returns (GetTask) {}
     rpc GetByID(TaskPrimaryKey) returns (GetTask) {}
-    rpc GetList(GetListTaskRequest) returns (GetListTaskResponse) {}
     rpc Update(UpdateTask) returns (GetTask) {}
     rpc Delete(TaskPrimaryKey) returns (google.protobuf.Empty) {}
-    rpc GetStudentTask(TaskPrimaryKey) returns (GetStudentTasks) {}
     rpc GetForWeek(GetWeekTaskRequest) returns (GetWeekTaskResponse) {}
 }
 
@@ -62,7 +60,7 @@ message GetTaskWeek {
     string id = 9;
 }
 
-message GetWeekTaskRequest {
+message GetTaskDateRequest {
     string from_date= 1;
     string to_date = 2;
     int64 offset = 3;
@@ -70,7 +68,7 @@ message GetWeekTaskRequest {
     string search = 5;
 }
 
-message GetWeekTaskResponse {
+message GetTaskDateResponse {
     int64 Count = 1;
     repeated GetTaskWeek Tasks = 2;
 }
