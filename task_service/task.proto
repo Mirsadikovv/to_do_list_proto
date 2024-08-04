@@ -73,12 +73,7 @@ message GetListTaskResponse {
 }
 
 message TaskChangeStatus {
-    string external_id = 1;
-    string new_status = 2;
-}
-
-message TaskChangeStatus {
-    string external_id = 1;
+    string task_id = 1;
     string new_status = 2;
 }
 
