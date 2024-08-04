@@ -9,6 +9,7 @@ import "google/protobuf/empty.proto";
 service TaskService {
     rpc Create(CreateTask) returns (GetTask) {}
     rpc GetByID(TaskPrimaryKey) returns (GetTask) {}
+    rpc GetByExternalId(TaskPrimaryKey) returns (GetTask) {}
     rpc Update(UpdateTask) returns (GetTask) {}
     rpc Delete(TaskPrimaryKey) returns (google.protobuf.Empty) {}
     rpc GetList(GetListTaskRequest) returns (GetListTaskResponse) {}
