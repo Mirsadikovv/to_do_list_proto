@@ -70,5 +70,5 @@ message GetListTaskRequest {
 
 message GetListTaskResponse {
     int64 Count = 1;
-    repeated GetTaskWeek Tasks = 2;
+    repeated GetListTask Tasks = 2;
 }
