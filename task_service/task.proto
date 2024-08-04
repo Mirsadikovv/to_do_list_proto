@@ -11,7 +11,7 @@ service TaskService {
     rpc GetByID(TaskPrimaryKey) returns (GetTask) {}
     rpc Update(UpdateTask) returns (GetTask) {}
     rpc Delete(TaskPrimaryKey) returns (google.protobuf.Empty) {}
-    rpc GetForWeek(GetWeekTaskRequest) returns (GetWeekTaskResponse) {}
+    rpc GetList(GetListTaskRequest) returns (GetListTaskResponse) {}
 }
 
 message TaskPrimaryKey {
@@ -48,7 +48,7 @@ message UpdateTask {
 }
 
 
-message GetTaskWeek {
+message GetListTask {
     string user_id = 1;
     string external_id = 2;
     string title = 3;
@@ -60,7 +60,7 @@ message GetTaskWeek {
     string id = 9;
 }
 
-message GetTaskDateRequest {
+message GetListTaskRequest {
     string from_date= 1;
     string to_date = 2;
     int64 offset = 3;
@@ -68,7 +68,7 @@ message GetTaskDateRequest {
     string search = 5;
 }
 
-message GetTaskDateResponse {
+message GetListTaskResponse {
     int64 Count = 1;
     repeated GetTaskWeek Tasks = 2;
 }
